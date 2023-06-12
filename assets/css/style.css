@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Work Sans", sans-serif;
+    list-style: none;
+    box-sizing: border-box;
+}
+body {
+    position: relative;
+    background-color: var(--couleur_fond);
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.body_accueil {
+    background: linear-gradient(
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.6)
+        ),
+        url(../img/accueil.webp) no-repeat;
+    background-size: 1920px;
+    background-attachment: fixed;
+    background-position: center;
+    max-width: 1920px;
+    min-height: 100vh;
+}
+
+.header_principal {
+    min-height: 500px;
+    background: linear-gradient(
+            rgba(255, 255, 255, 0.6),
+            rgba(255, 255, 255, 0.6)
+        ),
+        url(../img/accueil.webp) no-repeat;
+    background-size: 1920px;
+    background-attachment: scroll;
+    background-position: center;
+    max-width: 1920px;
+}
+
+.main_accueil {
+    max-width: 1920px;
+    min-height: 100vh;
+}
+
+.fixe {
+    max-width: 1920px;
+    /* position: fixed; */
+    top: 0;
+    width: 100%;
+    height: 130px;
+    z-index: 99;
+}
+
+
+a {
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+}
+
+h1 {
+    font-size: clamp(1.5rem, 5vw, 5rem);
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.principale {
+    font-size: clamp(1rem, 3vw, 2rem);
+    color: #31405c;
+    text-align: center;
+}
+
+.principale strong {
+    font-size: clamp(2rem, 5vw, 4rem);
+}
+
+/* Pour la page index */
+.titre_section {
+    font-size: clamp(1.7rem, 3vw, 2rem);
+    color: #31405c;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="button"] {
+    cursor: pointer;
+}
+
+.hover_underligne::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    bottom: 0px;
+    width: 0%;
+    left: 50%;
+    background: #F8D26B;
+    transition: 0.1s all ease;
+    transform: translateX(-50%);
+}
+
+.hover_underligne:hover::after {
+    width: 100%;
+}
+
+.call_to_action {
+    text-align: center;
+    padding: 10px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.call_to_action_petit {
+    font-weight: normal;
+    width: fit-content;
+    padding: 5px 15px;
+}
+
+.blanc {
+    border: 2px solid #F8D26B;
+}
+
+.blanc:hover {
+    background-color: #F8D26B;
+    transition: all 0.2s;
+    color: #263238;
+}
+
+.bleu {
+    color: whitesmoke;
+    border: 2px solid var(--couleur_call_to_action);
+    background-color: #31405c;
+    /* box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7); */
+}
+
+.bleu:hover {
+    color: black;
+    border: 2px solid var(--couleur_call_to_action);
+    background-color: transparent;
+    transition: all 0.2s;
+    box-shadow: none;
+}
+.rouge {
+    color: whitesmoke;
+    border: 2px solid var(--couleur_danger);
+    background-color: var(--couleur_danger);
+    box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
+}
+
+.rouge:hover {
+    color: black;
+    border: 2px solid var(--couleur_danger);
+    background-color: transparent;
+    transition: all 0.2s;
+    box-shadow: none;
+}
+
+span.invisible {
+    display: none;
+}
+span.visible {
+    display: block;
+}
+
+.flex_row {
+    display: flex;
+    flex-direction: row;
+    /* gap: 10px; */
+}
+
+.flex_column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex_justify_around {
+    justify-content: space-around;
+}
+.flex_justify_between {
+    justify-content: space-between;
+}
+.flex_justify_center {
+    justify-content: center;
+}
+.flex_justify_evenly {
+    justify-content: space-evenly;
+}
+.flex_align_center {
+    align-items: center;
+}
+
+.fil_ariane {
+    padding-left: 50px;
+    box-shadow: none;
+}
+.fil_ariane svg,
+.fil_ariane a {
+    font-size: 0.8rem;
+    text-decoration: underline;
+    color: #525252;
+}
+
+.retour_en_haut {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    bottom: 10px;
+    right: 30px;
+    border-radius: 50px;
+    border: 2px solid var(--couleur_call_to_action);
+    padding: 5px 15px;
+    backdrop-filter: blur(60px);
+}
+.retour_en_haut img {
+    width: 30px;
+    height: 30px;
+}
+
+@media screen and (max-width: 1250px) {
+    .call_to_action.blanc {
+        padding: 5px 10px;
+    }
+
+    .header_principal {
+        min-height: 300px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .call_to_action {
+        padding: 5px 10px;
+    }
+}

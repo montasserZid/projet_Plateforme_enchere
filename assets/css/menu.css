@@ -1,0 +1,79 @@
+nav {
+    justify-content: space-between;
+    padding: 20px;
+    box-shadow: 0px 4px 9px -7px #0000003b;
+    background: #31405c;
+}
+
+.nav_blanche {
+    background-color: var(--couleur_fond);
+}
+
+nav .logo {
+    height: 100px;
+    width: 200px;
+}
+
+nav .zone_gauche,
+nav .zone_droite {
+    align-items: center;
+    gap: 20px;
+}
+
+nav a {
+    position: relative;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+}
+
+nav .recherche {
+    min-width: 200px;
+    border-radius: 30px;
+    padding: 10px 30px;
+    border: none;
+    background-color: var(--couleur_carte);
+}
+
+nav .recherche::placeholder {
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 1250px) {
+    .fixe {
+        min-height: 110px;
+    }
+    nav.flex_row {
+        justify-content: space-between;
+        padding: 10px;
+        align-items: center;
+        gap: 30px;
+    }
+
+    nav .recherche {
+        order: 1;
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .fixe {
+        height: fit-content;
+    }
+    nav.flex_row {
+        flex-direction: column;
+    }
+
+    nav .zone_gauche {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    nav .logo {
+        height: 65px;
+        width: 160px;
+    }
+    nav .zone_droite {
+        flex-direction: column;
+        gap: 5px;
+    }
+}

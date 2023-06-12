@@ -1,0 +1,33 @@
+<section>
+  <h1>{{ titre|upper }}</h1>
+  
+  <form method="POST" action="ajouterTimbre" enctype="multipart/form-data">
+
+    <label>Nom</label>
+    <input name="timbre_nom" value="{{ timbre.nom }}"><br>
+        {% if erreurs['nom'] != "" %}
+            <br><span id="messageErreurConnexion" style="color: red;">&nbsp;{{erreurs['nom']}}</span>
+        {% endif %}
+    <input type="hidden" name="idMembre" value="{{ membre }}">
+    <label>Description</label>
+    <input name="timbre_description" value="{{ timbre.description }}"><br>
+        {% if erreurs['description'] != "" %}
+            <br><span id="messageErreurConnexion" style="color: red;">&nbsp;{{erreurs['description']}}</span>
+        {% endif %}
+    <label>État</label>
+    <select name="timbre_etat">
+        <option value="Excellent">Excellent</option>
+        <option value="Moyen">Moyen</option>
+        <option value="Endommagé">Endommagé</option>
+        <option value="Parfait">Parfait</option>
+    </select><br>
+    <label>Image</label>
+    <input type="file" name="timbre_image"><br>
+        {% if erreur_image != "" %}
+            <br><span id="messageErreurConnexion" style="color: red;">&nbsp;{{erreur_image}}</span>
+        {% endif %}
+    <input type="submit" value="Envoyer">
+   
+  </form>
+
+</section>

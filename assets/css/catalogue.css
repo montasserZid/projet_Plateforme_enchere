@@ -1,0 +1,46 @@
+.catalogue {
+    padding: 20px 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 0.1fr));
+    gap: 20px;
+    justify-content: center;
+    align-items: start;
+    width: 100%;
+}
+.Stampee_info {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 30px;
+    background: var(--couleur_carte);
+  }
+  
+  .Stampee_info img {
+    flex-grow: 1;
+    flex-basis: 0;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .Stampee_info p {
+    flex-grow: 1;
+    flex-basis: 0;
+    margin: 0;
+  }
+
+  /* bouton page suivantr */
+.page-suivante {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #31405c;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+}
+/* Les petits points */
+.page-suivante:after {
+  content: "\2026"; 
+}

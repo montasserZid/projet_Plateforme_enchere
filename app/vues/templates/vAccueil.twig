@@ -1,0 +1,194 @@
+<!--MAIN-->
+    <main>
+
+        <!--SECTION PRINCIPALE-->
+        <div class="zone_principale flex_column flex_justify_evenly flex_align_center">
+
+            <!--SLOGAN DE LA PLATEFORME-->
+            <h1 class="principale">Des timbres uniques à portée de clic avec <strong>Stampee</strong></h1>
+
+            <!--RECHERCHE RAPIDE + AFFICHAGE GALERIE-->
+            <div class="bienvenue flex_column flex_justify_center flex_align_center">
+                <div class="recherche flex_row">
+                    <input aria-label="recherce" type="search" name="recherche" id="recherche"
+                        placeholder="Rechercher un nom, couleurs, date, pays...">
+                    <div class="bouton_recherche flex_row flex_justify_center flex_align_center">
+                        <i class="fa-solid fa-magnifying-glass icon_recherche icon_taille_20"></i>
+                    </div>
+                </div>
+                <a class="call_to_action bleu" href="#">Afficher le resultat</a>
+            </div>
+            <input type="hidden" class="inputRecherche" value="{{valeur_recherche}}">
+            <!--PREFERENCE DU LORD (4)-->
+            <section class="nouveaux_arrivages blur flex_column">
+                <h2 class="titre_section">Les Enchères  Actives</h2>
+
+                <div class="nouveau_timbres">
+                {% for enchere in encheres %}
+                 {% set enchere_id = enchere.Timbre_idTimbre %}
+                    <article class="carte flex_column flex_justify_between">
+                        <header class="header_carte flex_row flex_justify_center flex_align_center"></header>
+                        {# <div class="ico-coeur"><img src="./assets/img/icone-svg/heart.svg" alt="noth"></div> #}
+                        <div class="flex_column">
+                          {% for image in images %}
+                            {% if enchere_id == image.Timbre_idTimbre %}
+                            <div class="ico-coeur">
+                                {% set rempli = "" %}
+                                {% for favori in favoris %}
+                                    {% if enchere_id == favori.Enchere_idTimbre %}
+                                        {% set rempli = "-rempli" %}
+                                    {% endif %}
+                                {% endfor %}
+
+                                <img id="heart" src="./assets/img/icone-svg/heart{{ rempli }}.svg"
+                                    alt="noth" 
+                                    data-timbre="{{image.Timbre_idTimbre}}" 
+                                    data-membre="{{session.idMembre}}"
+                                >
+                             </div>
+                            
+                                <img data-filtre="image"  src="{{ image.chemin_image }}" alt="{{image.Timbre_idTimbre}}">
+                            {% endif %}
+                          {% endfor %}
+                        </div>
+                        <footer class="footer_carte flex_column">
+                        {% for timbre in timbres %}
+                            {% if enchere.Timbre_idTimbre == timbre.idTimbre %}
+                                {%  set timbre_V = timbre %}
+                            {% endif %}
+                        {% endfor %} 
+                            
+                            {% if timbre_V != [] %}
+                            <h3>{{timbre_V.nom}}</h3>
+                            <p data-filtre="nomTimbre">
+                                <strong>#Ref{{timbre_V.reference}}</strong> <br>
+                                {{timbre_V.description}}
+                            </p>
+                            <div class="details flex_row">
+                                <p data-filtre="prix">prix : ${{ enchere.prix }}</p>
+                                <p data-filtre="etat">etat : {{ timbre_V.etat }} </p>
+                            </div>
+                            <a href="admin?entite=details&idTimbre={{ timbre_V.idTimbre }}" class="call_to_action_petit call_to_action bleu">Miser</a>
+                        
+                        {% endif %}
+                        </footer>
+                    </article>
+                    
+                    {% endfor %} 
+                </div>
+            </section>
+        </div>
+
+        <!--SECTION SECONDAIRE-->
+        <div id="zone_secondaire" class="zone_secondaire flex_column flex_justify_around">
+
+            <!--FONCTIONNEMENT DE LA PLATEFORME-->
+            <section class="aide_platforme">
+                <h2 class="titre_section">Fonctionnement de la plateforme</h2>
+                <ul class="etape flex_row carte_etapes">
+                    <li class="flex_column blur">
+                        <div class="flex_row">
+                            <span>1</span>
+                            <h3>Créer vous un compte et connectez-vous</h3>
+                        </div>
+                        <a class="call_to_action blanc" href="#">Voir toutes les questions à ce sujet</a>
+                    </li>
+                    <li class="flex_column blur">
+                        <div class="flex_row">
+                            <span>2</span>
+                            <h3>Explorez les options de timbres qui vous correspondent</h3>
+                        </div>
+                        <a class="call_to_action blanc" href="#">Voir toutes les questions à ce sujet</a>
+                    </li>
+                    <li class="flex_column blur">
+                        <div class="flex_row">
+                            <span>3</span>
+                            <h3>Enchérissez et agrandissez votre collection</h3>
+                        </div>
+                        <a class="call_to_action blanc" href="#">Voir toutes les questions à ce sujet</a>
+                    </li>
+                </ul>
+            </section>
+
+            <!--ACTUALITÉS-->
+            <section class="zone_actualites ">
+                <h2 class="titre_section">Les actualités du jour</h2>
+                <div class="les_actualites">
+                    <div class="actualite flex_row blur">
+                        <img src="https://i.etsystatic.com/11946352/r/il/7ad77d/1934703017/il_1080xN.1934703017_ltko.jpg" alt="Albert Einstein">
+                        <div class="actualite_corps flex_column flex_justify_between">
+                            <h3>La poste suisse émet des timbres en hommage à Albert Einstein</h3>
+                            <p>La poste suisse a émis des timbres en l'honneur du célèbre physicien Albert Einstein pour marquer 
+                                le 100e anniversaire de sa théorie de la relativité générale. Les timbres présentent une photo de
+                                 profil du physicien et une image de la célèbre équation E=mc².
+                            </p>
+                            <div class="lire_actualite flex_row flex_align_center">
+                                <a class="call_to_action bleu" href="#">Lire l'article</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actualite flex_row blur">
+                        <img src="https://karsh.org/wordpress/wp-content/uploads/2017/06/Yousuf-Karsh-Nelson-Mandela-1990-1523x1960.jpg" alt="Nelson Mandela">
+                        <div class="actualite_corps flex_column flex_justify_between">
+                            <h3>Timbres commémoratifs de Nelson Mandela </h3>
+                            <p>Des timbres commémoratifs de Nelson Mandela ont été mis en vente en Afrique du Sud pour marquer le 100e
+                                 anniversaire de sa naissance. Les timbres représentent différents moments de la vie du leader sud-africain,
+                                  notamment lorsqu'il a été libéré de prison et lorsqu'il a été élu président du pays.</p>
+                            <div class="lire_actualite flex_row flex_align_center">
+                                <a class="call_to_action bleu" href="#">Lire l'article</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actualite flex_row blur">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWjrR3r1fZ4BJ3xZDhdHDXf_q28m2r9VyyAQ&usqp=CAU" alt="Histoire paris">
+                        <div class="actualite_corps flex_column flex_justify_between">
+                            <h3>Des timbres représentant les célèbres monuments de Paris </h3>
+                            <p>La poste française a émis des timbres représentant certains des célèbres monuments de Paris, tels que la tour Eiffel,
+                                l'Arc de Triomphe et Notre-Dame. Les timbres sont disponibles en différentes valeurs et sont vendus dans les bureaux 
+                                de poste en France.</p>
+                            <div class="lire_actualite flex_row flex_align_center">
+                                <a class="call_to_action bleu" href="#">Lire l'article</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actualite flex_row blur">
+                        <img src="https://www.slate.fr/sites/default/files/styles/1200x680/public/nefertiti.jpg" alt="reine Néfertiti">
+                        <div class="actualite_corps flex_column flex_justify_between">
+                            <h3>Des timbres à l'effigie de la reine Néfertiti émis par l'Égypte</h3>
+                            <p>Le timbre, une passion et un support d’investissement : un placement plaisir ! Certains
+                                vous
+                                le
+                                diront, le timbre ils en sont timbrés. Ceux-là collectionnent par passion, ils sont sans
+                                cesse
+                                en quête d’une nouveauté à posséder. Timbre-taxe, poste aérienne, variété, tout est bon
+                                pour
+                                étayer leur collection. De manière différente, d’autres ont choisi le timbre comme
+                                support
+                                d’investissement ou pour diversifier leur patrimoine. Ils espèrent ainsi faire une
+                                plus-value
+                                dans le temps</p>
+                            <div class="lire_actualite flex_row flex_align_center flex_row flex_align_center">
+                                <a class="call_to_action bleu" href="#">Lire l'article</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--DESCRIPTION DU LORD-->
+            <section class="a_propos flex_column flex_align_center">
+                <h2 class="titre_section"><strong>Stampee </strong>: l'histoire passionnante d'un collectionneur de timbres</h2>
+                <div class="Stampee_info">
+                    <img src="./assets/img/perso-lord.webp" alt="Lord Reginald Stampee III">
+                  <div>
+                    <p>Né le 7 juin 1946, Charles était le fils d'un riche industriel de la région. Dès son plus jeune âge, il était attiré par l'art et l'histoire. Il décida donc de quitter sa ville natale et de s'installer à Paris pour poursuivre ses études en histoire de l'art.</p>
+                    <p>Là-bas, il mena une vie simple en travaillant comme serveur dans un café pour financer ses études. Charles ne voulait pas dépendre de l'argent de son père. Il préférait s'enrichir intellectuellement en lisant des livres et en visitant des musées. Ce n'est que plus tard qu'il découvrit sa passion pour la photographie.</p>
+                    <p>Il commença alors à collectionner les appareils photo anciens et rares du monde entier. Sa collection était si impressionnante qu'elle rivalisait avec celle des plus grands collectionneurs de l'époque. Maintenant, Charles souhaite partager sa passion avec le reste du monde en créant un musée de la photographie.</p>
+                  </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+

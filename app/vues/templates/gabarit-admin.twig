@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  {# <title>{{ titre }}</title> #}
+  <link rel="stylesheet" type="text/css" href="css/admin.css">
+  
+</head>
+
+<body>
+  <div id="page">
+  {# ici on va ajouter un if pour verifier le statut de l'utilisateur PROFIL_ADMINISTRATEUR ou PROFIL_ClIENT ou PROFIL_editeur #}
+   <header>
+      <p>
+        {{ utilisateur.prenom }} {{ u.nom }}
+        <a href="deconnexion">Déconnecter</a>
+      </p>
+      <nav>
+        <ul>
+          <li>
+            <hr>
+            <a href="timbre">Timbres</a>
+          </li>
+          {# {% if u.role == 1 %} #}
+           <li>
+            <hr>
+            <a href="enchere">Enchère</a>
+          </li>
+
+          <li>
+            <hr>
+            <a href="mise">mise</a>
+          </li>
+          {# {% endif %} #}
+          
+          {% if u.role == 1 %}
+          <li>
+            <hr>
+            <a href="utilisateur">Utilisateurs</a>
+          </li>
+          {% endif %}
+          {# {% endif %} #}
+        </ul>
+      </nav>
+    </header>
+    {# fin if  #}
+    <main>
+    {# verifier le statut de l'utilisateur #}
+    {# {{ include(templateMain) }} #}
+    {# {% else %} #}
+      {# afficher page pour ceux qui ne sont pas de role administrateur #}
+        {% if u.role == 1 %}
+      {# afficher page pour ceux qui sont de role administrateur #}
+    {{ include(templateMain) }}
+    {# {% else %} #}
+      {# afficher page pour ceux qui ne sont pas de role administrateur #}
+ {% endif %}
+         {% if u.role == 2 %}
+      {# afficher page pour ceux qui sont de role administrateur #}
+    {{ include(templateMain) }}
+    {# {% else %} #}
+      {# afficher page pour ceux qui ne sont pas de role administrateur #}
+ {% endif %}
+    </main>
+  </div>
+</body>
+</html>

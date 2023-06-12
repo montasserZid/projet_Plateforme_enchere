@@ -1,0 +1,20 @@
+.image{
+  overflow:hidden;
+    /* position:relative; */
+    /* width:600px;
+    height:400px; */
+  }
+  .image img{
+  /* object-fit:cover;
+    position:absolute; */
+  transform:scale(var(--zoom,1));
+    transform-origin: var(--x) var(--y);
+    transition: transform 0.3s ease;
+  }
+  .image:hover{
+  --zoom:3;
+  }
+  .image.zoomed img {
+    transform: scale(3);
+  }
+   

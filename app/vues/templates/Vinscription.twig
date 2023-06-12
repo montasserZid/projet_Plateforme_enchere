@@ -1,0 +1,74 @@
+<main class="formulaire_inscription">
+        <form class="flex_column" action="" method="post">
+            <div class="info_perso flex_column">
+                <h4>Informations personnelles</h4>
+                <div class="flex_row flex_align_center">
+                    <i class="fa-solid fa-user"></i><input aria-label="nom" type="text" name="nom" id="nom"
+                        placeholder="Nom" required>
+                </div>
+                 {% if erreurs['nom'] != "" %}
+                            <br><span id="messageErreurConnexion" style="color: red;">&nbsp;{{erreurs['nom']}}</span>
+                        {% endif %}
+                <div class="flex_row flex_align_center">
+                    <i class="fa-solid fa-user"></i><input aria-label="prenom" type="text" name="prenom" id="prenom"
+                        placeholder="Prénom" required>
+                </div>
+                  {% if erreurs['prenom'] != "" %}
+                            <br><span id="messageErreurConnexion" style="color: red;">&nbsp;{{erreurs['prenom']}}</span>
+                        {% endif %}
+                <div class="flex_row flex_align_center">
+                    <i class="fa-solid fa-phone"></i><input aria-label="telephone" type="text" name="telephone"
+                        id="telephone" placeholder="Téléphone" required>
+                </div>
+                 {% if erreurs['telephone'] != "" %}
+                            <br><span id="messageErreurConnexion" style="color: red;">&nbsp;{{erreurs['telephone']}}</span>
+                        {% endif %}
+                <div class="flex_row flex_align_center">
+                    <i class="fa-solid fa-house"></i><input aria-label="adresse" type="text" name="adresse" id="adresse"
+                        placeholder="Adresse" required>
+                </div>
+                  {% if erreurs['adresse'] != "" %}
+                            <br><span id="messageErreurConnexion" style="color: red;">&nbsp;{{erreurs['adresse']}}</span>
+                        {% endif %}
+                {# <div class="info_date_naissance flex_column">
+                    <h4>Date de naissance</h4>
+                    <div class="date_naissance flex_row">
+                        <div class="flex_row flex_align_center">
+                            <i class="fa-solid fa-cake-candles"></i><input aria-label="jourNaissance" type="text"
+                                name="jourNaissance" id="jourNaissance" placeholder="JJ" required>
+                        </div>
+                        <div class="flex_row flex_align_center">
+                            <i class="fa-solid fa-cake-candles"></i><input aria-label="moisNaissance" type="text"
+                                name="moisNaissance" id="moisNaissance" placeholder="MM" required>
+                        </div>
+                        <div class="flex_row flex_align_center">
+                            <i class="fa-solid fa-cake-candles"></i><input aria-label="anneeNaissance" type="text"
+                                name="anneeNaissance" id="anneeNaissance" placeholder="AA" required>
+                        </div>
+                    </div>
+                </div> #}
+                <div class="info_connexion flex_column">
+                    <h4>Informations de connexion</h4>
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-envelope"></i><input aria-label="email" type="text" name="email"
+                            id="email" placeholder="Email" required>
+                    </div>
+                        {% if erreurs['email'] != "" %}
+                            <br><span id="messageErreurConnexion" style="color: red;">&nbsp;{{erreurs['email']}}</span>
+                        {% endif %}
+                    <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-lock"></i><input aria-label="password" type="text" name="password"
+                            id="password" placeholder="Mot de passe" required>
+                    </div>
+                     {% if erreurs['password'] != "" %}
+                            <br><span id="messageErreurConnexion" style="color: red;">&nbsp;{{erreurs['password']}}</span>
+                        {% endif %}
+                    {# <div class="flex_row flex_align_center">
+                        <i class="fa-solid fa-lock"></i><input aria-label="passwordConfirm" type="text"
+                            name="passwordConfirm" id="passwordConfirm" placeholder="Confirmer le mot de passe"
+                            required>
+                    </div> #}
+                </div>
+                <button class="call_to_action bleu" type="submit">S'inscrire</button>
+        </form>
+    </main>

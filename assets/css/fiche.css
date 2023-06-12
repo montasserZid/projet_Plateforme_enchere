@@ -1,0 +1,245 @@
+.fiche {
+    max-height: fit-content;
+    min-width: 70%;
+    padding: 3em;
+    margin: 2em auto;
+    background-color: var(--couleur_carte);
+    border-radius: 30px;
+    box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
+}
+
+.fiche h1 {
+    font-size: clamp(1rem, 2.5vw, 2rem);
+}
+
+.fiche .galerie {
+    min-width: 50%;
+    gap: 30px;
+}
+.fiche img {
+    height: 400px;
+    width: 400px;
+    cursor: zoom-in;
+    object-fit: contain;
+}
+
+.fiche .img-magnifier-container {
+    position: relative;
+}
+
+.fiche .img-magnifier-glass {
+    position: absolute;
+    border: 3px solid #000;
+    border-radius: 50%;
+    cursor: none;
+    /*Set the size of the magnifier glass:*/
+    width: 150px;
+    height: 150px;
+}
+
+.fiche .carrousel {
+    padding: 10px 20px;
+}
+
+.fiche .carrousel img {
+    max-width: 130px;
+    height: auto;
+    cursor: pointer;
+}
+
+.fiche .description {
+    align-items: initial;
+    gap: 30px;
+    min-width: 30%;
+}
+
+.fiche .tableau {
+    min-width: 100%;
+    padding: 20px 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.fiche .tableau td {
+    padding: 10px 0px;
+}
+.fiche tr:nth-child(odd) {
+    background-color: var(--couleur_dynamic_island);
+}
+
+.fiche .like {
+    gap: 8px;
+}
+
+.fiche .like input {
+    background-color: transparent;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.fiche .temps_restant,
+.fiche .temps_restant h2,
+footer h2 {
+    width: 100%;
+}
+
+.fiche footer {
+    gap: 50px;
+}
+
+.fiche footer a {
+    max-width: 50%;
+    min-width: fit-content;
+    margin: 0 auto;
+}
+
+.fiche footer h2 {
+    text-align: center;
+}
+
+.fiche .prix {
+    gap: 20px;
+}
+
+.fiche .prix a {
+    flex-grow: 1;
+    min-width: 250px;
+}
+
+.fiche .zone_enchere {
+    text-align: center;
+    flex-grow: 1;
+    padding: 10px 30px;
+    border-radius: 30px;
+    color: black;
+    border: 2px solid var(--couleur_call_to_action);
+    background-color: transparent;
+}
+
+.fiche [data-filtre="finEnchere"] {
+    gap: 5px;
+}
+
+.fiche [data-filtre="secondes"] {
+    width: 28px;
+}
+
+.fiche .information_importante {
+    min-width: 100%;
+}
+
+.fiche .information_importante img {
+    max-width: 200px;
+    height: auto;
+}
+
+.voir_plus img {
+    max-width: 50px;
+    height: auto;
+}
+
+.autres_enchères {
+    padding: 50px 50px 15px 50px;
+    gap: 30px;
+    overflow: scroll;
+}
+
+.autres_enchères .carte {
+    max-width: 250px;
+    min-height: 200px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 2px rgba(0, 0, 0, 0.15),
+        0 4px 4px rgba(0, 0, 0, 0.15), 0 8px 8px rgba(0, 0, 0, 0.15);
+}
+
+.autres_enchères .header_carte {
+    gap: 5px;
+}
+
+.autres_enchères .header_carte h2 {
+    font-size: 0.7rem;
+}
+
+.autres_enchères .header_carte span {
+    height: 20px;
+    width: 20px;
+}
+
+.autres_enchères .header_carte .heure {
+    width: 65%;
+}
+
+.autres_enchères .footer_carte .call_to_action_petit {
+    font-weight: normal;
+    width: 100%;
+    padding: 5px 15px;
+}
+
+.autres_enchères .footer_carte {
+    font-size: 0.8rem;
+}
+
+.autres_enchères .carte img {
+    max-height: 100px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* NOTE Zone pour la création d'une enchère */
+.fiche form ul {
+    gap: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+    .fiche {
+        align-items: center;
+        flex-direction: column;
+    }
+    .fiche img {
+        height: 300px;
+    }
+
+    .fiche .carrousel img {
+        max-width: 80px;
+    }
+
+    .fiche footer {
+        gap: 26px;
+    }
+
+    .fiche .image_container {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .fiche {
+        align-items: center;
+        flex-direction: column;
+    }
+    .fiche img {
+        height: 200px;
+    }
+
+    .fiche .carrousel img {
+        max-width: 50px;
+    }
+
+    .fiche .galerie {
+        gap: 2px;
+    }
+
+    .fiche .prix {
+        flex-direction: column;
+    }
+
+    .fiche .information_importante {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}

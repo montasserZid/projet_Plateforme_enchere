@@ -1,0 +1,35 @@
+<!-- 
+idFavoris : 50 # 
+Membre_idMembre : 20 # 
+Enchere_idTimbre : 3 # 
+-->
+<!-- idFavoris : 82 # 
+Membre_idMembre : 20 # 
+Enchere_idTimbre : 41 # 
+-->
+<!-- idFavoris : 86 # 
+Membre_idMembre : 20 # 
+Enchere_idTimbre : 42 # 
+-->
+<!-- idFavoris : 87 # 
+Membre_idMembre : 20 # 
+Enchere_idTimbre : 47 # 
+                                            -->
+
+
+
+
+<img
+    data-test="3"
+    src="./assets/img/icone-svg/heart.svg" 
+
+    data-test="41"
+    src="./assets/img/icone-svg/heart.svg" 
+    
+    data-test="42"
+    src="./assets/img/icone-svg/heart-rempli.svg"
+    
+    data-test="47"
+    src="./assets/img/icone-svg/heart.svg" 
+    
+alt="noth" data-timbre="42" data-membre="20">

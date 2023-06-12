@@ -1,0 +1,34 @@
+.ico-coeur{
+    /* position:absolute; */
+    top:var(--esp-petit);
+    right:-12px;
+    border: var(--bordure-graisse) solid var(--bordure-couleur);
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--blanc);
+    z-index: 1;
+}
+.ico-coeur img{
+    /* position: absolute; */
+    width:15px;
+    top:5px;
+    left:4px;
+}
+.ico-coeur:hover{
+    cursor:pointer;
+}
+@media screen and (min-width:961px) {
+     .ico-coeur{
+        right:-10px;
+        top:-8px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .ico-coeur img{
+        width:30px;
+        top:10px;
+        left:10px;
+    }
+}

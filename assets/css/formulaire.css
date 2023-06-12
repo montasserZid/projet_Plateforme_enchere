@@ -1,0 +1,113 @@
+.formulaire_inscription,
+.formulaire_connexion,
+.formulaire_compte {
+    max-width: 40em;
+    min-height: fit-content;
+    padding: 3em;
+    margin: 2em auto;
+    background-color: var(--couleur_carte);
+    border-radius: 30px;
+    box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    gap: 30px;
+}
+
+form .error {
+    text-align: center;
+    color: var(--couleur_danger);
+}
+
+form h4 {
+    font-size: clamp(0.2rem, 5vw, 1rem);
+    font-weight: normal;
+    margin: 15px 0px 0px 0px;
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 1em;
+    padding-left: 1em;
+    line-height: 1.4;
+    background-color: var(--couleur_dynamic_island);
+    border: none;
+    border-radius: 30px;
+}
+
+.formulaire_inscription form input,
+.formulaire_inscription form select,
+.formulaire_connexion form input,
+.formulaire_connexion form select {
+    width: 100%;
+}
+
+.fit_content {
+    width: fit-content;
+}
+
+form .placeholder {
+    color: #656565;
+}
+
+form .invalide {
+    border-color: var(--couleur_danger);
+}
+
+form .invisible {
+    display: none;
+}
+
+form .visible {
+    display: block;
+}
+
+form .info_perso,
+form .info_connexion,
+form .info_date_naissance,
+form .date_naissance {
+    gap: 10px;
+}
+
+form .call_to_action {
+    font-size: 1.1rem;
+    /* margin: 30px 0px 0px 0px; */
+}
+
+form .info_perso div,
+form .info_connexion div,
+form .date_naissance div {
+    border-radius: 30px;
+    gap: 5px;
+}
+
+form svg {
+    color: #d6d6d6;
+}
+
+form textarea {
+    width: 100%;
+    padding: 1em;
+    padding-left: 1em;
+    line-height: 1.4;
+    background-color: var(--couleur_dynamic_island);
+    border: none;
+    border-radius: 30px;
+}
+
+
+
+.formulaire_connexion .info_connexion {
+    gap: 30px;
+}
+
+.formulaire_connexion a {
+    font-size: 0.8rem;
+    text-decoration: underline;
+    color: #737373;
+}
+
+form .form_like {
+    padding: 0;
+}

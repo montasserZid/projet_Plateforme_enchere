@@ -1,0 +1,37 @@
+<section>
+  <h1>{{ titre|upper }}</h1>
+  
+  <form method="POST" action="modifierEnchere">
+
+    <label>prix de depart</label>
+    <input name="prix_depart" value=""><br>
+        {% if erreurs['prix'] != "" %}
+            <br><span id="messageErreurConnexion" style="color: red;">&nbsp;{{erreurs['prix']}}</span>
+        {% endif %}
+    <input type="hidden" name="idTimbre" value="{{ idTimbre }}">
+    <input type="hidden" name="idMembre" value="{{ idMembre }}">
+    
+    {# <input type="hidden" name="status_enchere" value="{{ status_enchere }}"> #}
+    
+    
+    <label>L'Enchère Expire dans :</label>
+      <select name="expiration">
+      <option value="1j">1 Jour</option>
+      <option value="3j">3 Jour</option>
+      <option value="7j">7 Jour</option>
+      </select><br>
+
+    {# <label>Timbres</label>
+    <select name="timbre">
+     {% for timbre in timbres %}
+        <option value="{{ timbre.idTimbre }}">{{ timbre.nom }}</option>
+    {% endfor %}
+    </select><br>
+      {% if erreurs['status_enchere'] != "" %}
+            <br><span id="messageErreurConnexion" style="color: red;">&nbsp;{{erreurs['status_enchere']}}</span>
+        {% endif %} #}
+     <input type="submit" value="Envoyer">
+
+  </form>
+
+</section>

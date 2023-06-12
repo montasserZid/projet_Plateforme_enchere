@@ -1,0 +1,27 @@
+
+.icon_taille_mid {
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    color: #F8D26B;
+}
+
+
+/* NOTE pour le changement de la couleur de la loupe de recherche */
+.icon_recherche {
+    filter: invert(97%) sepia(26%) saturate(384%) hue-rotate(176deg)
+        brightness(100%) contrast(96%);
+}
+
+/* NOTE pour le changement de la couleur de la loupe de recherche au HOVER */
+.icon_recherche:hover {
+    filter: invert(21%) sepia(15%) saturate(2359%) hue-rotate(186deg)
+        brightness(89%) contrast(90%);
+}
+
+.icon_social:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: all 0.2s;
+}
+

@@ -1,0 +1,53 @@
+<script>history.pushState({}, '', 'admin?entite=enchere')</script>
+<section>
+  <a href="admin?entite=enchere&action=a&idMembre={{u.idMembre}}">Ajouter une Enchère</a>
+  <div class="g utilisateurs">
+    <div class="t">proprietaire</div>
+    <div class="t">nom du Timbre</div>
+    <div class="t">status</div>
+    <div class="t">date fin</div>
+    <div class="t">Actions</div>
+   
+{% set nom_complet = '' %} <!-- initialiser la variable -->
+{% set nom_timbre = '' %} 
+{% for enchere in encheres %}
+    {% for membre in tous_les_membres %}
+    
+        {% if enchere.Membre_idMembre == membre.idMembre %}
+            {%  set nom_complet = membre.nom_complet %} <!-- définir la variable -->
+  
+    
+    {% for nom_de_un_timbre in tous_les_timbres %}
+        {% if enchere.Timbre_idTimbre == nom_de_un_timbre.idTimbre %}
+            {%  set nom_timbre = nom_de_un_timbre.nom %}
+
+    <div class="l">
+    {% if nom_complet != '' %}
+        <div class="c dr">{{ nom_complet }}</div>
+    {% endif %}
+    {% if nom_timbre != '' %}
+        <div class="c   ">{{ nom_timbre }}</div>
+    {% endif %}
+    <div class="c   ">{{ status.Status }}</div>
+    <div class="c">{{ enchere.dateFin }}</div>
+    <div class="c   ">
+    {% if u.role == 1 %}
+    {# u.role == 1 #}
+        <a href="admin?entite=enchere&action=m&idTimbre={{ nom_de_un_timbre.idTimbre }}&idMembre={{ membre.idMembre }}">modifier</a>
+        <span class="confirmer" data-href="admin?entite=enchere&action=s&idTimbre={{ nom_de_un_timbre.idTimbre }}">supprimer</span>
+    {% endif %}
+    {% if u.role != 1 %}
+     <span>Pas de option disponible</span>
+    {% endif %}
+              {% endif %}
+    {% endfor %}
+                {% endif %}
+    {% endfor %}
+    </div>
+        
+    </div>
+{% endfor %}
+
+  </div>
+</section>
+{{ include("modaleSuppression.twig") }}

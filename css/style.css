@@ -1,0 +1,150 @@
+ul, li {
+    margin: 0;
+    padding: 0;
+}
+html {
+  background-color: #EEEEEE;
+}
+body {
+  margin: 0 auto;	
+  width:960px;
+  border: 1px solid #CCCCCC;
+  background-color: #FFFFFF; 
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+h1 {
+  color: brown;
+    font-size: 28px;
+}
+h1 span {
+  color: #000;
+}
+header{
+  padding-left:20px;
+  height:100px;
+  padding-bottom:0px;
+  margin-bottom:0px;
+  text-align: left;
+}
+nav {
+  background-color:#7F9DB9;
+  padding-top:5px;
+  padding-bottom:5px;
+  width:960px;
+  
+  text-align: center;
+}
+nav ul {
+  margin-top:5px;
+  margin-bottom:5px;
+}
+nav li {
+  display:inline-block;
+  margin: 0 35px;
+  font-weight:bold;
+}
+nav a {
+  text-decoration: none;	
+  font-size: 24px;
+  color:#fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+nav a:hover {
+  text-decoration: underline;	
+}
+#contenu {
+  padding-left:20px;
+  min-height: 450px;	
+}
+
+/* formulaire
+   ---------- */
+
+.erreur {
+  color: red;
+}
+div.saisie {
+  display: inline-block;
+  margin: 20px 0;
+  vertical-align: text-top; 
+}
+div.saisie span {
+  display: block;
+  padding-top: 5px;
+  font-size: 14px;
+  color: brown;
+}
+label {
+  display: inline-block;
+  line-height: 40px; 
+}
+input {
+  display: block;
+  margin-right: 30px;
+  box-sizing:border-box;
+  padding-left: 8px;
+  width: 200px;
+  height: 40px;
+  font-size: 16px;
+}
+input[type="submit"] {
+  margin-right: 0;
+  width: 100px;
+}
+
+/* résultat recherche
+   ------------------ */
+.g {
+  display: grid;
+  grid-gap: 3px;
+}
+#resultatRecherche {
+  grid-template-columns: 100px 220px 220px 100px 140px 120px;
+  margin-bottom: 50px;
+}
+.l {
+  display: contents;
+}
+.dr {
+  text-align: right;
+}
+.mi {
+  text-align: center;
+}
+.l:nth-of-type(2n) .c {
+  background-color: #eee;
+}
+.l:nth-of-type(2n+1) .c {
+  background-color: #ddd;
+}
+.t {
+  text-align: center;
+  font-weight: bold;
+  border: 2px solid #7F9DB9;   
+  ;
+}
+.t, .c {
+  box-sizing: border-box;
+  padding: 5px 20px;
+  line-height: 32px;
+  border-radius: 3px;
+}
+
+/* statistiques
+   ------------ */
+#statistiques {
+  width: 60%;
+  margin-bottom: 50px;
+}
+#statistiques th,
+#statistiques td {
+  line-height: 30px;
+  text-align: left;
+  padding-left: 50px;
+}
+#statistiques th:nth-of-type(2),
+#statistiques td:nth-of-type(2) {
+  text-align: right;
+  padding-right: 50px;
+}

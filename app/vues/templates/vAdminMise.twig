@@ -1,0 +1,31 @@
+<script>history.pushState({}, '', 'admin?entite=Mise')</script>
+<section>
+  {# <a href="admin?entite=details&action=a&idMembre={{u.idMembre}}">Ajouter un Timbre</a> #}
+  <div class="g utilisateurs">
+    <div class="t">Id</div>
+    <div class="t">nom offrant</div>
+    <div class="t">nom timbre</div>
+    <div class="t">offre</div>
+    <div class="t">Actions</div>
+   
+  {% for mise in membreMise %}
+    <div class="l">
+    {# idMise 	mise 	idOffrant 	Membre_idMembre 	Enchere_Membre_idMembre 	Enchere_Timbre_idTimbre 	 #}
+      <div class="c dr">{{ mise.idMise }}</div>
+      <div class="c   ">{{ membreNom.nom }},{{ membreNom.prenom }}</div>
+      {% for timbre in timbres %}
+        {% if timbre.idTimbre == mise.Enchere_Timbre_idTimbre %}
+          <div class="c   ">{{ timbre.nom }}</div>
+        {% endif %}
+      {% endfor %}
+        <div class="c">${{ mise.mise }}</div>
+        <div class="c   ">
+        {# <a href="admin?entite=details&action=m&idTimbre={{ timbre.idTimbre }}">modifier</a>
+        <span class="confirmer" data-href="admin?entite=details&action=s&idTimbre={{ timbre.idTimbre }}">supprimer</span> #}
+        <span class="confirmer" data-href="">Aucune option disponible</span> 
+       </div>
+    </div>
+  {% endfor %} 
+  </div>
+</section>
+{# {{ include("modaleSuppression.twig") }} #}

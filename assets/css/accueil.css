@@ -1,0 +1,248 @@
+.zone_principale {
+    gap: 20px;
+    min-height: calc(100vh - 140px);
+    margin-top: 140px;
+}
+
+.zone_principale .recherche {
+    background-color: var(--couleur_carte);
+    min-width: 80%;
+    padding: 10px;
+    border-radius: 30px;
+}
+
+.zone_principale .recherche input {
+    flex-grow: 1;
+    border: none;
+    background-color: transparent;
+    min-width: 350px;
+    outline: none;
+}
+
+.zone_principale .recherche input::placeholder {
+    margin-left: 10px;
+    color: black;
+    font-size: clamp(0.7rem, 1vw, 0.9rem);
+}
+
+.zone_principale .bouton_recherche {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--couleur_call_to_action);
+    cursor: pointer;
+}
+
+.zone_principale .bouton_recherche:hover {
+    background-color: var(--couleur_carte);
+    border: 2px solid var(--couleur_call_to_action);
+    border-radius: 50%;
+}
+
+.zone_principale .bienvenue {
+    gap: 50px;
+}
+
+.zone_principale .nouveaux_arrivages {
+    width: 100%;
+    gap: 10px;
+    flex-grow: 0;
+    padding: 20px;
+}
+
+.zone_principale .nouveaux_arrivages > div {
+    gap: 10px;
+}
+.zone_principale .nouveau_timbres {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.zone_principale .carte {
+    gap: 20px;
+    padding: 15px;
+    border-radius: 20px;
+    min-width: 277px;
+    max-width: 190px;
+    min-height: 250px;
+    overflow-y: hidden;
+    background-color: #F8D26B;
+}
+
+.zone_principale .header_carte {
+    width: 100%;
+}
+
+
+
+.zone_principale .footer_carte {
+    gap: 10px;
+}
+
+.zone_principale [data-filtre="image"] {
+    /* max-height: 100px; */
+    cursor: pointer;
+}
+
+.zone_principale [data-filtre="nomTimbre"],
+.zone_principale [data-filtre="prix"],
+.zone_principale [data-filtre="etat"],
+.zone_principale [data-filtre="finEnchere"] {
+    font-size: 1rem;
+    line-height: 1.3;
+}
+
+.zone_principale .carte h3 {
+    font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+    font-size: 20px;
+}
+
+.zone_secondaire {
+    min-height: 50vh;
+    gap: 50px;
+    padding-top: 20px;
+    margin: 0 20px;
+}
+
+.zone_secondaire ul {
+    gap: 20px;
+}
+
+.zone_secondaire li {
+    padding: 30px;
+    color: #fff;
+    border-radius: 30px;
+    background: #31405c;
+    max-width: 470px;
+}
+
+.zone_secondaire li > div {
+    gap: 10px;
+    padding-bottom: 30px;
+    align-items: baseline;
+}
+
+.zone_secondaire li a {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: bold;
+    
+    
+}
+/* .zone_secondaire li a:hover{
+    color: white;
+} */
+
+.zone_secondaire .etape span {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: bold;
+}
+.zone_secondaire .etape h3 {
+    font-size: clamp(1.2rem, 2vw, 1.4rem);
+}
+
+.zone_secondaire .actualite {
+    padding: 32px;
+    border-radius: 30px;
+}
+
+.actualite{
+    background: #F8D26B;
+}
+
+.zone_secondaire .actualite_corps {
+    padding: 0px 20px;
+}
+
+.zone_secondaire .actualite:nth-child(even) {
+    flex-direction: row-reverse;
+}
+.zone_secondaire .actualite:nth-child(odd) {
+    flex-direction: row;
+}
+
+.zone_secondaire .les_actualites {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(35%, 1fr));
+    gap: 20px;
+}
+
+.zone_secondaire .zone_actualites h3 {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    max-width: 80ch;
+    color: #31405c;
+}
+
+.zone_secondaire .zone_actualites p {
+    font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.zone_secondaire .zone_actualites img {
+    height: 200px;
+    max-width: 170px;
+    object-fit: cover;
+}
+
+.zone_secondaire .zone_actualites a {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: bold;
+    
+   
+}
+
+.zone_secondaire > * {
+    padding: 20px 0px;
+    min-width: 100%;
+}
+
+.a_propos img {
+    max-height: 361px;
+    width: auto;
+    float: left;
+    object-fit: contain;
+    
+}
+.a_propos div{
+    display: flex;
+    justify-content: space-evenly;
+}
+.a_propos div p {
+    font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+    max-width: 21ch;
+    line-height: 1.5rem;
+    margin-bottom: auto;
+    text-align: left;
+    padding: 5px;
+}
+
+.a_propos br {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1260px) {
+    .zone_secondaire .les_actualites {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .accueil .bouton_recherche img {
+        height: 30px;
+        padding: 5px;
+    }
+    .a_propos div{
+        flex-direction: column;
+    }
+    .a_propos div p {
+        max-width: 90ch;
+        
+    }
+}

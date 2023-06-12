@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <title>{{ titre }}</title>
+    {# <link href="css/style.css" rel="stylesheet"> #}
+        <link rel="stylesheet" href="./assets/css/variables.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/aside.css">
+    <link rel="stylesheet" href="./assets/css/asideMenu.css">
+    <link rel="stylesheet" href="./assets/css/form.css">
+    <link rel="stylesheet" href="./assets/css/menu.css">
+    <link rel="stylesheet" href="./assets/css/carte.css">
+    <link rel="stylesheet" href="./assets/css/catalogue.css">
+    <link rel="stylesheet" href="./assets/css/accueil.css">
+    <link rel="stylesheet" href="./assets/css/icon.css">
+    <link rel="stylesheet" href="./assets/css/formulaire.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="stylesheet" href="./assets/css/fiche.css">
+    <link rel="stylesheet" href="./assets/css/zoom.css">
+    
+    <link rel="stylesheet" href="./assets/css/coeur.css">
+    
+    <script src="https://kit.fontawesome.com/4890a1a8f5.js" crossorigin="anonymous"></script>
+    <script src="js/zoom.js" defer></script>
+    <script src="js/favoris.js" defer></script>
+    
+  </head>
+
+  <body>
+        <header class="blur fixe" id="top">
+        <nav class="flex_row">
+            <div class="zone_gauche flex_row">
+                <img class="logo" src="./assets/img/logo/logo2.webp" alt="Logo">
+            </div>
+            <div class="zone_droite flex_row">
+                <a class="hover_underligne" href="#">Actualités</a>
+                <a class="hover_underligne" href="#">Enchères</a>
+                <a class="hover_underligne" href="#">À propos</a>
+                {% if session is empty %}
+                    {# <P>Vous n'êtes pas connecté</P> #}
+                    <a class="call_to_action blanc" href="connexion">Connexion</a>
+                    <a class="call_to_action blanc" href="inscription">Inscription</a>
+                {% else %}
+                    <p style="color:white;">Bonjour, {{ session.nom }} {{ session.prenom }}</p>
+                    <a class="call_to_action blanc" href="deconnexion">Déconnexion</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+      {{ include(templateMain) }}
+       <!--FOOTER-->
+    <footer class="footer_page flex_column">
+
+        <!--LOGO-->
+        <div class="logo_footer flex_row flex_justify_center ">
+            <img src="./assets/img/logo/logo2.webp" alt="Logo Lord Stampee">
+        </div>
+
+        <!--MENU SECONDAIRE-->
+        <div class="aide_generale flex_row flex_justify_around">
+            <div class="liste1 liste flex_column">
+                <a class="hover_underligne" href="#">CONTACT</a>
+                <a class="hover_underligne" href="#">Être appelé</a>
+                <a class="hover_underligne" href="#">Standart</a>
+                <a class="hover_underligne" href="#">Communiqué de presse</a>
+                <a class="hover_underligne" href="#">Investisseurs</a>
+            </div>
+            <div class="liste2 liste flex_column">
+                <a class="hover_underligne" href="#">Actualité</a>
+                <a class="hover_underligne" href="#">Timbres</a>
+                <a class="hover_underligne" href="#">Enchères</a>
+                <a class="hover_underligne" href="#">Bridge</a>
+            </div>
+            <div class="liste3 liste flex_column">
+                <a class="hover_underligne" href="#">À propos</a>
+                <a class="hover_underligne" href="#">Condition d'utilisation</a>
+                <a class="hover_underligne" href="#">Politique de confidentialité</a>
+                <a class="hover_underligne" href="#">Politique de livraison</a>
+            </div>
+            <div class="liste4 liste flex_column">
+                <a class="hover_underligne" href="#">Questions générales</a>
+                <a class="hover_underligne" href="#">Profil</a>
+                <a class="hover_underligne" href="#">Comment placer une offre</a>
+                <a class="hover_underligne" href="#">Suivre une enchère</a>
+                <a class="hover_underligne" href="#">Trouver l’enchère désirée</a>
+                <a class="hover_underligne" href="#">Contacter le webmestre</a>
+                <a class="hover_underligne" href="#">Termes et condition</a>
+            </div>
+        </div>
+
+        <!--INFOLETTRE + MEDIA-SOCIAUX-->
+        <div class="info_lettre_media_sociaux flex_row flex_align_center flex_justify_around">
+            <div class="info_lettre flex_column flex_justify_center flex_align_center">
+                <h1>
+                    Ne manquez pas notre infolettre!
+                </h1>
+                <div class="info_lettre_form flex_row">
+                    <input aria-label="info_lettre" type="text" name="info_lettre" id="info_lettre"
+                        placeholder="Votre email">
+                    <input type="button" value="s'abonner">
+                </div>
+            </div>
+            <div class="reseaux_sociaux flex_row flex_justify_center flex_align_center">
+                <i class="fa-brands fa-facebook icon_taille_mid icon_social"></i>
+                <i class="fa-brands fa-instagram icon_taille_mid icon_social"></i>
+                <i class="fa-brands fa-twitter icon_taille_mid icon_social"></i>
+                <i class="fa-brands fa-snapchat icon_taille_mid icon_social"></i>
+                <i class="fa-brands fa-tiktok icon_taille_mid icon_social"></i>
+            </div>
+        </div>
+
+        <!--COPYRIGHT-->
+        <p>© Stampee 2023, Tous droits réservés</p>
+    </footer>
+  </body>
+      <script>
+      console.log('test',document.querySelectorAll('.image'));
+    document.querySelectorAll('.image').forEach(elem =>{
+        console.log(elem);
+  let x,y, width, height;
+    elem.onmouseenter = () => {
+  const size = elem.getBoundingClientRect();
+  console.log(size);
+      x = size.x;
+      y= size.y;
+      width = size.width;
+  height = size.height;
+  
+  };
+    elem.onmousemove = e =>{
+  const horizontal = (e.clientx - x ) / width*100;
+      const vertical = (e.client - y) / height*100;
+      elem.style.setProperty('--x', horizontal + '%');
+      elem.style.setProperty('--y', vertical + '%');
+  };
+  });
+</script>
+</html>

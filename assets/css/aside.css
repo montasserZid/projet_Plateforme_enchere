@@ -1,0 +1,68 @@
+aside {
+    display: flex;
+    flex-direction: column;
+    min-width: 240px;
+    padding: 20px 10px;
+    gap: 10px;
+    border-right: 1px solid var(--couleur_carte);
+}
+
+aside details {
+    cursor: pointer;
+}
+
+aside summary {
+    user-select: none;
+    font-size: 1.1rem;
+    font-weight: bolder;
+}
+
+aside summary::marker {
+    color: var(--couleur_call_to_action);
+}
+
+aside h2 {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    text-align: center;
+}
+
+aside .prix,
+aside .pays,
+aside .condition,
+aside .couleurs,
+aside .certifie {
+    background-color: var(--couleur_carte);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+aside .filtre_details.prix {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    padding-top: 10px;
+}
+aside .filtre_details.prix p {
+    font-size: 1rem;
+}
+
+aside .filtre_details.prix input,
+aside .filtre_details.couleurs input {
+    max-width: 50px;
+    min-height: 20px;
+    border-radius: 30px;
+    border: none;
+}
+
+aside .filtre_details.couleurs input {
+    max-width: 150px;
+}
+
+aside input::placeholder {
+    text-align: center;
+}
+
+aside .filtre_details.pays {
+    display: flex;
+    flex-direction: column;
+}

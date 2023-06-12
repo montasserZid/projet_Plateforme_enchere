@@ -1,0 +1,52 @@
+form label{
+  display: inline-block;
+  color: #31405c;
+}
+
+
+input[type="text"], input[type="search"], select{
+  display:block;
+  background-color: #ffffff;
+  border: 1px solid #31405c;
+  outline: 0;
+  padding: 0.8em 1em;
+  border-radius: 0.25rem;
+  min-width: 100px;
+
+}
+
+.language{ display: -webkit-inline-box;}
+
+form input:focus {
+  box-shadow: 0 0px 2px #F8D26B;
+}
+
+input[type="search"] {
+  border: #F8D26B solid;
+  padding-left:30px;
+}
+
+input::placeholder, select option:first-child {
+  color: #31405c;
+}
+
+
+
+input[type="checkbox"], input[type="radio"]{
+  appearance         : none;
+  width              : 20px;
+  height             : 20px;
+  border             : 1px solid #d9d8d6;
+  border-radius      : 0.25rem;
+  background         : #fff no-repeat center center;
+}
+
+
+input[type="checkbox"]:checked{
+  background-color: #31405c;
+
+}
+
+input[type="radio"]:checked{
+  background-color: #31405c;
+}

@@ -1,0 +1,35 @@
+<section>
+  <h1>{{ titre|upper }}</h1>
+  
+  <form method="POST" action="modifierUtilisateur">
+
+    <label>Nom</label>
+    <input name="utilisateur_nom" value="{{ utilisateur.nom }}" placeholder="{{ utilisateur.nom }}">
+    <span>&nbsp;{{ erreurs.utilisateur_nom }}</span>
+
+    <label>Prénom</label>
+    <input name="utilisateur_prenom" value="{{ utilisateur.prenom }}">
+    <span>&nbsp;{{ erreurs.utilisateur_prenom }}</span>
+
+    <label>Courriel</label>
+    <input name="utilisateur_courriel" value="{{ utilisateur.email }}">
+    <span>&nbsp;{{ erreurs.email }}</span>
+
+ 
+
+    {# <label>Profil</label>
+    <select name="utilisateur_profil">
+      <option value="{{ constant('utilisateur::PROFIL_CLIENT')         }}" {{ utilisateur.utilisateur_profil == constant('utilisateur::PROFIL_CLIENT')         ? 'selected' : '' }}>Client</option>
+      <option value="{{ constant('utilisateur::PROFIL_CORRECTEUR')     }}" {{ utilisateur.utilisateur_profil == constant('utilisateur::PROFIL_CORRECTEUR')     ? 'selected' : '' }}>Correcteur</option>
+      <option value="{{ constant('utilisateur::PROFIL_EDITEUR')        }}" {{ utilisateur.utilisateur_profil == constant('utilisateur::PROFIL_EDITEUR')        ? 'selected' : '' }}>Editeur</option>
+      <option value="{{ constant('utilisateur::PROFIL_ADMINISTRATEUR') }}" {{ utilisateur.utilisateur_profil == constant('utilisateur::PROFIL_ADMINISTRATEUR') ? 'selected' : '' }}>Administrateur</option>
+    </select>
+    <span>&nbsp;{{ erreurs.utilisateur_profil }}</span> #}
+
+    <input type="hidden" name="idMembre" value="{{ utilisateur.idMembre }}">
+
+    <input type="submit" value="Envoyer">
+
+  </form>
+
+</section>

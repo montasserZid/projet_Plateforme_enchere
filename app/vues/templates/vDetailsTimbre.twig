@@ -1,0 +1,99 @@
+<main class="flex_column">
+        <div class="fiche flex_row" style="gap:10px;">
+            <section class="image flex_column">
+               <div class="zoom js-zoom">
+                    <div class="image">
+                        <img  src="{{imageTimbre.chemin_image}}" alt="timbre à vendre">
+                    </div>
+                </div>
+                <div>
+                    <h2 class="temps_restant" id="temps_restant"></h2>
+                </div>
+            </section>
+            <section class="description flex_column">
+                <h1 data-filtre="nomTimbre">{{timbre.nom}}</h1>
+                <p>{{timbre.description}}</p>
+                <table class="tableau">
+                    <tbody>
+                        <tr>
+                            <td>Condition</td>
+                            <td data-filtre="etat">{{timbre.etat}}</td>
+                        </tr>
+               
+                        <tr>
+                            <td>Nom</td>
+                            <td data-filtre="nom">{{timbre.nom}}</td>
+                        </tr>
+                 
+                        <tr>
+                            <td>expiration d'enchere</td>
+                            <td data-filtre="date">{{ enchere.dateFin }}</td>
+                        </tr>
+                
+                           <tr>
+                            <td>reference</td>
+                            <td data-filtre="reference">#Ref{{timbre.reference}}</td>
+                        </tr>
+                     
+                    </tbody>
+                </table>
+                <footer class="flex_column">
+                {% set prix_string = enchere.prix %}
+                {# <p>{{prix_string|replace({'$': '', ',': ''})|trim|number_format}}</p> #}
+                    {% set prix_int = prix_string|replace({'$': '', ',': ''})|trim|number_format %}
+                    {% set prix_nouveau = prix_int + 5 %}
+                    <h2 data-filtre="prix">Prix actuel : ${{enchere.prix}}</h2>
+                    <div class="prix flex_row">
+                        <form method="POST" action="ajouterMise" style="display: inherit;">
+                        <input aria-label="miser" data-filtre="enchere" class="zone_enchere" type="text" name="miser"
+                            placeholder="min ${{ prix_nouveau }}" id="miser">
+                            
+                            <input type="hidden" name="idTimbre" value="{{ enchere.Timbre_idTimbre }}">
+                             <input type="hidden" name="idMembre" value="{{ enchere.Membre_idMembre }}">
+                             <input type="hidden" name="PrixActuelle" value="{{ enchere.prix }}">
+                             <input type="hidden" name="sessionNom" value="{{ session.nom }}">
+                                <input type="hidden" name="sessionPrenom" value="{{ session.prenom }}">
+                                <input type="hidden" name="sessionId" value="{{ session.idMembre }}">
+                             <input type="hidden" name="utilisateurConnecter" value="{{ session.idMembre }}">
+                             {# idMembre #}
+                             
+                            
+                            {# <input type="hidden" name="idTimbre" value="{{ enchere.Timbre_idTimbre }}"> #}
+                        {# <a type="submit" value="Envoyer" class="call_to_action bleu">Enchérir</a> #}
+                        <input type="submit" value="Enchérir" class="call_to_action bleu">
+                       
+                        </form>
+                        <span class="icon_like icon_taille_20"></span>
+                       
+                    </div>
+                       {% if success != "" %}
+                            <br><span id="messageErreurConnexion" style="color: #4BB543;">&nbsp;{{success}}</span>
+                        {% endif %}
+                        {# erreurs['montant'] #}
+                         {% if erreurs['montant'] != "" %}
+                            <br><span id="messageErreurConnexion" style="color: red;">&nbsp;{{erreurs['montant']}}</span>
+                        {% endif %}
+                </footer>
+            </section>
+        </div>
+</main>
+<script >
+// Récupérer la date actuelle et la date d'expiration de l'enchère
+var now = new Date();
+var dateFin = new Date("{{ enchere.dateFin }}");
+
+// Calculer la différence entre les deux dates
+var diff = dateFin.getTime() - now.getTime();
+
+// Convertir la différence en jours, heures, minutes et secondes
+var jours = Math.floor(diff / (1000 * 60 * 60 * 24));
+var heures = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+var secondes = Math.floor((diff % (1000 * 60)) / 1000);
+if(jours > 0 || heures > 0 || minutes > 0 || secondes > 0){
+    document.getElementById("temps_restant").innerHTML = "Termine dans " + jours + "J:" + heures + "H:" + minutes + "M:" + secondes + "S";
+}else{
+    document.getElementById("temps_restant").innerHTML ="Cette enchère est terminée";
+}
+
+</script>
